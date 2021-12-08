@@ -2,12 +2,12 @@ import { Header } from "../../Components/Header";
 import { ProductCard } from "../../Components/ProductCard";
 import { CardsContainer, Container } from "./styles";
 
-import { useSelector } from "react-redux";
 import { Button } from "../../Components/Button";
+import { useContext } from "react";
+import { ProductsContext } from "../../Providers/products";
 
 export const ProductsPage = () => {
-  const products = useSelector((store) => store.products);
-  console.log(products);
+  const { products } = useContext(ProductsContext);
 
   return (
     <Container>

@@ -1,4 +1,8 @@
-const defaultState = [
+import { createContext, useState } from "react";
+
+export const ProductsContext = createContext();
+
+const initialState = [
   {
     id: 1,
 
@@ -49,8 +53,12 @@ const defaultState = [
   },
 ];
 
-const productsReducer = (state = defaultState, action) => {
-  return state;
+export const ProductProvider = ({ children }) => {
+  const [products] = useState(initialState);
+  return (
+    <ProductsContext.Provider value={{ products }}>
+      {children}
+    </ProductsContext.Provider>
+  );
 };
-
-export default productsReducer;
+export default ProductProvider;
